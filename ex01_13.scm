@@ -1,3 +1,6 @@
+#lang racket
+(require racket/trace)
+(require (planet neil/sicp))
 ;;; Numbers wiki
 ;;; http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/Numerical-operations.html
 
@@ -29,7 +32,7 @@
 ;;; -.0023724825796307414
 
 ; -------------------------
-(display  (psi) )
+(display  (psi))
 
 ; (2) 因为 psi == -.6180 ，所以count --> 无穷大时， (expt (psi) count) --> 0
 ;     则 (+ (expt (psi) count) (expt (phi) count)) --> (expt (phi) count) ，

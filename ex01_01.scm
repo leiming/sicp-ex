@@ -1,3 +1,7 @@
+#lang racket
+(require racket/trace)
+(require (planet neil/sicp))
+
 (display (+ 5 3 4))
 (newline)
 
@@ -20,34 +24,29 @@
 (display (= a b))
 (newline)
 
-(display 
-	(if (and (> b a ) (< b (* a b)))
-		b 
-		a
-	)
-)
-(newline)
-
-(display 
-	(cond ((= a 4) 6)
-		((= b 4) (+ 6 7 a))
-		(else 25)
-	)
-)
-(newline)
-
 (display
-	(+ 2 (if(> b a) b a))
-)
-(newline)
+  (if (and (> b a ) (< b (* a b)))
+    b
+    a))
 
+(newline)
 (display
-	(* 
-		(cond 
-			((> a b) a)
-			((< a b) b)
-		(else -1))
-	(+ a 1))
-)
-(newline)
+  (cond ((= a 4) 6)
+    ((= b 4) (+ 6 7 a))
+    (else 25)))
 
+
+(newline)
+(display
+  (+ 2 (if(> b a) b a)))
+
+(newline)
+(display
+  (*
+    (cond
+      ((> a b) a)
+      ((< a b) b)
+     (else -1))
+   (+ a 1)))
+
+(newline)

@@ -1,8 +1,11 @@
+#lang racket
+(require racket/trace)
+(require (planet neil/sicp))
+
 (define (rec-func n)
   (cond ((< n 3) n)
         ((or (= n 3) (> n 3))
-         (+ (rec-func (- n 1)) (* 2 (rec-func (- n 2))) (* 3 (rec-func (- n 3))))
-         )))
+         (+ (rec-func (- n 1)) (* 2 (rec-func (- n 2))) (* 3 (rec-func (- n 3)))))))
 
 ;(trace rec-func)
 
@@ -17,8 +20,8 @@
 (define (func-iter a b c count)
   (if (= 0 count)
       c
-      (func-iter (+ a (* 2 b) (* 3 c)) a b (- count 1))
-      ))
+      (func-iter (+ a (* 2 b) (* 3 c)) a b (- count 1))))
+
 (trace func-iter)
 
 (display (iter-func 8))

@@ -1,8 +1,10 @@
-;;; http://sicp.readthedocs.org/en/latest/chp1/6.html
+#lang racket
+(require racket/trace)
+(require (planet neil/sicp))
 
+;;; http://sicp.readthedocs.org/en/latest/chp1/6.html
 (define (square x)
-  (* x x)
-  )
+  (* x x))
 
 (define (sqrt-iter guess x)
   (if (improve-good-enough? guess (improve guess x))
@@ -22,7 +24,7 @@
   (< (abs (- 1
              (/ guess new-guess))) 0.001))
 
-(define (sqrt x)
+(define (my-sqrt x)
   (sqrt-iter 1.0 x))
 
-(display (sqrt 0.00009))
+(display (my-sqrt 0.00009))

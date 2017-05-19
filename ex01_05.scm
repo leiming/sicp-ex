@@ -1,12 +1,14 @@
+#lang racket
+(require racket/trace)
+(require (planet neil/sicp))
+
 (define (p) (p))
 
 (define (test x y)
-	(if (= x 0)
-		0
-		y
-	)
-)
-
+  (if (= x 0)
+    0
+    y))
+  
 ;;; 正则式
 ;;; (test 0 (p)) =>
 ;;; (if (= 0 0) 0 (p)) =>
