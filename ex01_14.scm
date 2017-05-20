@@ -32,4 +32,7 @@
 (display (count-change 10))
 ;;; 4
 
+;;; https://github.com/jiacai2050/sicp/blob/master/exercises/01/1.14.md
 ;;; http://sicp.readthedocs.org/en/latest/_images/14.pngz
+
+;;; https://github.com/jiacai2050/sicp/blob/master/05/2015-05-21-count-change-recurisve.md
