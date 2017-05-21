@@ -52,9 +52,9 @@
         (else
          (search-for-primes (next-odd from) count))))
 
-(displayln (search-for-primes 10000000 3))
-(displayln (search-for-primes 100000000 3))
-(displayln (search-for-primes 1000000000 3))
+(displayln (search-for-primes 10000000 12))
+(displayln (search-for-primes 100000000 12))
+(displayln (search-for-primes 1000000000 12))
 
 ;;; 10000019 *** 4
 ;;; 10000079 *** 1
