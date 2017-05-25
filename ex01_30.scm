@@ -5,11 +5,18 @@
 (define (cube x)
   (* x x x))
 
-(define (sum term k next n)
-  (if (> k n)
-      0
-      (+ (term k)
-         (sum term (next k) next n))))
+;(define (sum term k next n)
+;  (if (> k n)
+;      0
+;      (+ (term k)
+;         (sum term (next k) next n))))
+
+(define (sum term a next b)
+  (define (iter a result)
+    (if (> a b)
+        result
+        (iter (next a) (+ result (term a)))))
+  (iter a 0))
 
 (define (integral f k a b n)
   (define (func-h a b n)
