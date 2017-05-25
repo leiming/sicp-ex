@@ -19,7 +19,12 @@
   (if (even? n) (+ 1 n)
                 (+ 2 n)))
 
-(displayln (smallest-divisior 31))
-(displayln (smallest-divisior 199))
-(displayln (smallest-divisior 1999))
-(displayln (smallest-divisior 19999))
+(define (prime? n)
+  (= (smallest-divisior n) n))
+
+(provide prime?)
+
+;(displayln (smallest-divisior 31))
+;(displayln (smallest-divisior 199))
+;(displayln (smallest-divisior 1999))
+;(displayln (smallest-divisior 19999))
