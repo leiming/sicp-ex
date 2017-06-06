@@ -1,6 +1,6 @@
-#lang racket
-(require (planet neil/sicp))
-(require racket/trace)
+#lang sicp
+(#%require racket/trace)
+(#%require racket/base)
 
 (define (square x) (* x x))
 
@@ -29,7 +29,8 @@
 
 (define (start-prime-test n start-time)
   (if (prime? n)
-      (report-prime (- (runtime) start-time))))
+      (report-prime (- (runtime) start-time))
+      #f))
 
 (define (report-prime elapsed-time)
   (display " *** ")

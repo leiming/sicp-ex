@@ -1,6 +1,5 @@
-#lang racket
-(require (planet neil/sicp))
-(require racket/trace)
+#lang sicp
+;(#%require racket/trace)
 
 (define (accumulate combiner null-value term a next b)
   (if (> a b)
@@ -23,5 +22,5 @@
     (* a b))
   (accumulate combiner-product 1 term a next b))
 
-(displayln (sum term 1 next 10))
-(displayln (product term 1 next 10))
+(sum term 1 next 10)
+(product term 1 next 10)

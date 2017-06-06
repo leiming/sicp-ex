@@ -1,6 +1,6 @@
-#lang racket
-(require (planet neil/sicp))
-(require racket/trace)
+#lang sicp
+(#%require racket/trace)
+(#%require racket/base)
 (require "ex01_23.scm")
 
 (define (next a)
@@ -26,5 +26,5 @@
     (= 1 (gcd a b)))
   (filtered-accumulate * 1 term a next b gcd-filter))
 
-(displayln (sum-prime term 1 next 10))
-(displayln (product-gcd term 1 next 10))
+(sum-prime term 1 next 10)
+(product-gcd term 1 next 10)

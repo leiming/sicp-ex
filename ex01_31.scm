@@ -1,6 +1,6 @@
-#lang racket
-(require (planet neil/sicp))
-(require racket/trace)
+#lang sicp
+(#%require racket/trace)
+(#%require racket/base)
 
 (define (product term a next b)
   (define (iter a result)

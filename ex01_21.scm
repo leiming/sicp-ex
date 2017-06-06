@@ -1,5 +1,6 @@
-#lang racket
-(require racket/trace)
+#lang sicp
+(#%require racket/trace)
+(#%require racket/base)
 
 (define (square x) (* x x))
 
