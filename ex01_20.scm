@@ -1,17 +1,13 @@
 #lang sicp
-(#%require racket/trace)
-(#%require racket/base)
+
+(#%provide gcd)
 
 (define % remainder)
 
-(define (my-gcd a b)
+(define (gcd a b)
   (if (= b 0)
     a
-    (my-gcd b (% a b))))
+    (gcd b (% a b))))
 
-(trace my-gcd)
-(trace %)
-
-(displayln (my-gcd 206 40))
-
+;(gcd 206 40)
 ; http://community.schemewiki.org/?sicp-ex-1.20
