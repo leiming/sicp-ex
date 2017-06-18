@@ -3,8 +3,6 @@
 (#%require "ex01_40.scm")
 (#%require "ex01_43.scm")
 
-(#%provide pow)
-
 (define (square x)
   (* x x))
 
@@ -39,4 +37,4 @@
                   (log 2 n))
                1.0))
 
-;(nth-root 5 32)
+(nth-root 5 32)
