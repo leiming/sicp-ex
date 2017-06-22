@@ -1,7 +1,5 @@
 #lang sicp
 
-(#%require racket/trace)
-
 (define x (list (list 1 2) (list 3 4) (list 5 (list 6 7))))
 
 x
