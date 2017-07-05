@@ -1,6 +1,6 @@
 #lang sicp
 
-(#%provide fold-right fold-left)
+(#%provide fold-right fold-left accumulate)
 
 (define (accumulate op initial sequence)
   (if (null? sequence)
