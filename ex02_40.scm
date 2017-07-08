@@ -4,7 +4,7 @@
 (#%require "ex01_23.scm") ;;; prime?
 (#%require "ex02_20.scm") ;;; filter
 
-(#%provide flatmap)
+(#%provide flatmap enumerate-interval unique-pairs filter)
 
 (define (enumerate-interval low high)
   (if (> low high)
@@ -13,7 +13,6 @@
 
 (define (flatmap proc seq)
   (accumulate append '() (map proc seq)))
-
 
 (define (prime-sum? pair)
   (prime? (+ (car pair) (cadr pair))))
@@ -40,4 +39,5 @@
   (map make-pair-sum
     (filter prime-sum? (unique-pairs n))))
 
-;(prime-sum-pairs-simple 6)
+; (prime-sum-pairs-simple 6)
+; (prime-sum-pairs 6)
