@@ -1,5 +1,7 @@
 #lang sicp
 
+(#%provide make-vect xcor-vect ycor-vect add-vect sub-vect scale-vect)
+
 (define (make-vect x y)
   (cons x y))
     
@@ -21,5 +23,5 @@
   (cons (* scale (xcor-vect v))
         (* scale (ycor-vect v))))
 
-(add-vect (make-vect 1 2) (make-vect 3 4))
-(scale-vect (make-vect 1 3) 5)
+;(add-vect (make-vect 1 2) (make-vect 3 4))
+;(scale-vect (make-vect 1 3) 5)
