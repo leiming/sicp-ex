@@ -1,17 +1,26 @@
 #lang sicp
 
-;;; https://docs.racket-lang.org/sicp-manual/
 (#%require sicp-pict)
 
-(define one 0.99)
-(define tl (make-vect 0 one)) 
-(define tr (make-vect one one)) 
-(define bl (make-vect 0 0)) 
-(define br (make-vect one 0))
+;; https://docs.racket-lang.org/sicp-manual/
 
-(define a (segments->painter 
-           (list 
-            (make-segment bl tl) 
-            (make-segment tl tr) 
-            (make-segment tr br) 
-            (make-segment br bl)))) 
+(define (flip-horiz painter)
+  ((transform-painter (make-vect 1.0 0.0)
+                      (make-vect 0.0 0.0)
+                      (make-vect 1.0 1.0)) painter))
+                      
+(define (180-rotate painter)
+  ((transform-painter (make-vect 1.0 1.0)
+                      (make-vect 0.0 1.0)
+                      (make-vect 1.0 0.0)) painter))
+                      
+
+(define (270-rotate painter)
+  ((transform-painter (make-vect 0.0 1.0)
+                      (make-vect 0.0 0.0)
+                      (make-vect 1.0 1.0)) painter))
+
+(paint einstein)
+(paint (flip-horiz einstein))
+(paint (180-rotate einstein))
+(paint (270-rotate einstein))
