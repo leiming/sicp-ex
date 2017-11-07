@@ -1,7 +1,8 @@
  #lang racket
 
 (provide
-  tree->list-2)
+  (rename-out
+    (tree->list-2 tree->list)))  
 
 (define (entry tree) (car tree))
 (define (left-branch tree) (cadr tree))
