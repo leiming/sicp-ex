@@ -1,5 +1,8 @@
 #lang racket
 
+(provide
+  union-set)
+
 (define (union-set set1 set2)
   (cond ((and (null? set1) (null? set2)) '())
         ((null? set1) set2)
@@ -14,4 +17,4 @@
                   ((> x1 x2)
                    (cons x2 (union-set set1 (cdr set2)))))))))
 
-(union-set '(1 3 5 9 10) '(2 4 5 7))
+; (union-set '(1 3 5 9 10) '(2 4 5 7))

@@ -1,4 +1,7 @@
-#lang racket
+ #lang racket
+
+(provide
+  tree->list-2)
 
 (define (entry tree) (car tree))
 (define (left-branch tree) (cadr tree))
@@ -57,7 +60,19 @@
                                          (make-tree 9 '() (make-tree 11 '() '())))))
                                                    
                             
-(tree->list-1 tree-1)
-(tree->list-2 tree-1)
-(tree->list-1 tree-2)
-(tree->list-2 tree-2)
+;(tree->list-1 tree-1)
+;(tree->list-2 tree-1)
+;(tree->list-1 tree-2)
+;(tree->list-2 tree-2)
+
+; 试答
+; a) 结果相同，都是「链接」左子树与右子树，不同的是，tree->list-1 用 append， tree->list-2 用迭代展开
+; b) 步数增长，tree->list-1 快，因为使用 append 【p68】,每次都需遍历一次左表
+
+; 标准答案
+;For tree->list-1:
+;T(n) = 2*T(n/2) + O(n/2) (as the procedure append takes linear time)
+;Solving above equation, we get T(n) = O(n * log n)
+;For tree->list-2:
+;T(n) = 2*T(n/2) + O(1)
+;Solving the above equation, we get T(n) = O(n)

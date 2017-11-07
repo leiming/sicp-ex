@@ -1,6 +1,9 @@
 #lang racket
 ;(#%require racket/trace)
 
+(provide
+  intersection-set)
+
 (define (element-of-set? x set)
   (cond ((null? set) #f)
         ((= x (car set)) #t)
@@ -29,6 +32,6 @@
         (else
          (cons (car set) (adjoin-set x (cdr set))))))
   
-(element-of-set? 8 '(1 2 4 5 6))
-(intersection-set '(1 2 5) '(2 3 4 5 6))
-(adjoin-set 1 '(2 3 4 5 7))
+;(element-of-set? 8 '(1 2 4 5 6))
+;(intersection-set '(1 2 5) '(2 3 4 5 6))
+;(adjoin-set 1 '(2 3 4 5 7))
