@@ -3,25 +3,28 @@
 (require racket/trace)
 (require "ex02_67.scm")
 
-(define (element-of-set? x set) 
-  (cond ((null? set) #f) 
-        ((equal? x (car set)) #t) 
-        (else (element-of-set? x (cdr set)))))
-                  
-(define (encode-symbol smb tree) 
-  (define (branch-correct? branch) 
-     (if (leaf? branch) 
-         (equal? smb (symbol-leaf branch)) 
-         (element-of-set? smb (symbols branch)))) 
+(provide
+  encode)
 
-  (let ((lb (left-branch tree)) 
-        (rb (right-branch tree))) 
-   (cond ((branch-correct? lb) 
-          (if (leaf? lb) '(0) (cons 0 (encode-symbol smb lb)))) 
-         ((branch-correct? rb) 
-          (if (leaf? rb) '(1) (cons 1 (encode-symbol smb rb)))) 
+(define (element-of-set? x set)
+  (cond ((null? set) #f)
+        ((equal? x (car set)) #t)
+        (else (element-of-set? x (cdr set)))))
+
+(define (encode-symbol smb tree)
+  (define (branch-correct? branch)
+     (if (leaf? branch)
+         (equal? smb (symbol-leaf branch))
+         (element-of-set? smb (symbols branch))))
+
+  (let ((lb (left-branch tree))
+        (rb (right-branch tree)))
+   (cond ((branch-correct? lb)
+          (if (leaf? lb) '(0) (cons 0 (encode-symbol smb lb))))
+         ((branch-correct? rb)
+          (if (leaf? rb) '(1) (cons 1 (encode-symbol smb rb))))
          (else (error "bad symbol -- ENCODE-SYMBOL" smb)))))
-            
+
 
 (define (encode message tree)
   (if (null? message)
