@@ -57,5 +57,6 @@
 (define (div x y) (apply-generic 'div x y))
 (define (equ? x y) (apply-generic 'equ? x y))
 (define (=zero? x) (apply-generic '=zero? x))
+(define (nagative x) (apply-generic 'nagative x))
 
 (define (square x) (* x x))
