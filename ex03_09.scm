@@ -14,7 +14,7 @@
   (define (d dd)
     (* dd 1000 fff))
   (define (iter guess bb)
-    (let ((ddd 1) (fff 3444))
+    (let ((ddd 1) (fff 333))
       (+ (c guess) (d bb))))
   (iter aa (+ 10 bb)))
 
