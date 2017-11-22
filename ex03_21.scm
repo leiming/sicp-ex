@@ -41,15 +41,10 @@
          (set-front-ptr! queue (cdr (front-ptr queue)))
          queue)))
 
+
 (define (print-queue queue)
-  (define (print queue)
-    (cond ((null? queue)
-           (newline))
-          (else
-           (display (car queue))
-           (display " ")
-           (print (cdr queue)))))
-  (print (front-ptr queue)))
+  (display (front-ptr queue))
+  (newline))
 
 (define q1 (make-queue))
 (print-queue (insert-queue! q1 'a))
