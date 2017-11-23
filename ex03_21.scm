@@ -50,5 +50,7 @@
 (print-queue (insert-queue! q1 'a))
 (print-queue (insert-queue! q1 'b))
 (print-queue (insert-queue! q1 'c))
-(print-queue (insert-queue! q1 'd))
 (print-queue (delete-queue! q1))
+(print-queue (delete-queue! q1))
+(print-queue (delete-queue! q1))
+;(print-queue (delete-queue! q1))

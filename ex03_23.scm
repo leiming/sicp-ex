@@ -16,7 +16,7 @@
   (set-cdr! deque item))
 
 (define (empty-deque? deque)
-  (null? (front-ptr deque)))
+  (or (null? (front-ptr deque)) (null? (rear-ptr deque))))
 
 (define (front-deque deque)
   (if (empty-deque? deque)
@@ -39,10 +39,6 @@
 
 (define (set-next-ptr! node ptr)
   (set-cdr! node ptr))
-
-;(define ccc (cons (cons 1 2) 3))
-;(prev-ptr ccc)
-
 
 (define (front-insert-deque! deque item)
   (let ((new-pair (cons (cons item nil) nil)))
@@ -72,13 +68,25 @@
 (define (front-delete-deque! deque)
   (cond ((empty-deque? deque)
          (error "empty deque " deque))
+        ((has-only-item deque)
+         (set-front-ptr! deque '())
+         (set-rear-ptr! deque '())
+         deque)
         (else
-         (set-front-ptr! deque (cdr (front-ptr deque)))
+         (set-front-ptr! deque (next-ptr (front-ptr deque)))
+         (set-prev-ptr! (front-ptr deque) nil)
          deque)))
+
+(define (has-only-item deque)
+  (eq? (front-ptr deque) (rear-ptr deque)))
 
 (define (rear-delete-deque! deque)
   (cond ((empty-deque? deque)
          (error "empty deque " deque))
+        ((has-only-item deque)
+         (set-front-ptr! deque '())
+         (set-rear-ptr! deque '())
+         deque)
         (else
          (set-rear-ptr! deque (prev-ptr (rear-ptr deque)))
          (set-next-ptr! (rear-ptr deque) nil)
@@ -97,7 +105,6 @@
 
 (define a (make-deque))
 (print-deque (front-insert-deque! a 'a))
-(print-deque (front-insert-deque! a 'b))
 (print-deque (front-insert-deque! a 'c))
 (print-deque (rear-insert-deque! a 'x))
 (print-deque (rear-insert-deque! a 'y))
@@ -109,4 +116,7 @@
 (print-deque (rear-delete-deque! a))
 (print-deque (rear-delete-deque! a))
 (print-deque (rear-insert-deque! a 'h))
-(print-deque (rear-insert-deque! a 'i))
+(print-deque (rear-delete-deque! a))
+(print-deque (rear-delete-deque! a))
+;(print-deque (rear-delete-deque! a))
+(print-deque (front-insert-deque! a 'a))
