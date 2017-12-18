@@ -38,7 +38,6 @@
 (define (call-each procedures)
   (if (null? procedures)
       (begin
-        (newline)
         'done)
       (begin
         ((car procedures))
@@ -84,3 +83,5 @@
                  (display (current-time the-agenda))
                  (display " New-value = ")
                  (display (get-signal wire)))))
+
+;;; http://sicp.readthedocs.io/en/latest/chp3/31.html

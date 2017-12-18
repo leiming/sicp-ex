@@ -1,6 +1,7 @@
 #lang sicp
 
 (#%require "ex03_31.scm")
+(#%require "ex03_32.scm")
 
 (#%provide
   or-gate)
@@ -24,3 +25,16 @@
   (add-action! a2 or-action-procedure)
   (newline)
   'OK)
+
+;;; -------------------------
+
+; (define input-1 (make-wire))
+; (define input-2 (make-wire))
+; (define or-line (make-wire))
+;
+; (probe 'or-line or-line)
+; (or-gate  input-1 input-2 or-line)
+; (set-signal! input-1 1)
+; (propagate)
+; (set-signal! input-1 0)
+; (propagate)
