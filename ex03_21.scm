@@ -1,5 +1,13 @@
 #lang sicp
 
+(#%provide
+  make-queue
+  empty-queue?
+  insert-queue!
+  delete-queue!
+  print-queue
+  front-queue)
+
 (define (make-queue)
   (cons '() '()))
 
@@ -20,7 +28,7 @@
 
 (define (front-queue queue)
   (if (empty-queue? queue)
-      (error "queue empty")
+      (error "queue empty" queue)
       (car (front-ptr queue))))
 
 (define (insert-queue! queue item)
@@ -46,11 +54,11 @@
   (display (front-ptr queue))
   (newline))
 
-(define q1 (make-queue))
-(print-queue (insert-queue! q1 'a))
-(print-queue (insert-queue! q1 'b))
-(print-queue (insert-queue! q1 'c))
-(print-queue (delete-queue! q1))
-(print-queue (delete-queue! q1))
-(print-queue (delete-queue! q1))
-;(print-queue (delete-queue! q1))
+; (define q1 (make-queue))
+; (print-queue (insert-queue! q1 'a))
+; (print-queue (insert-queue! q1 'b))
+; (print-queue (insert-queue! q1 'c))
+; (print-queue (delete-queue! q1))
+; (print-queue (delete-queue! q1))
+; (print-queue (delete-queue! q1))
+; (print-queue (delete-queue! q1))
